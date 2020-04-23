@@ -52,7 +52,7 @@ public class CharacterController : MonoBehaviour
             Animator.SetBool("Attack", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (SimpleInput.GetKeyDown(KeyCode.Mouse1))
         {
             OnceAttack = false;
            // Debug.Log("Rclick");
@@ -66,8 +66,8 @@ public class CharacterController : MonoBehaviour
         }
 
         Move_Fuc();
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        h = SimpleInput.GetAxis("Horizontal");
+        v = SimpleInput.GetAxis("Vertical");
 
         Animator.SetFloat("MoveSpeed", Mathf.Abs(h )+Mathf.Abs (v));
 
@@ -100,14 +100,14 @@ public class CharacterController : MonoBehaviour
     // character Move Function
     void Move_Fuc()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (SimpleInput.GetKey(KeyCode.A))
         {
             //  Debug.Log("Left");
             rigidbody.AddForce(Vector2.left * MoveSpeed );
             if (FacingRight)
                 Filp();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (SimpleInput.GetKey(KeyCode.D))
         {
             //  Debug.Log("Right");
             rigidbody.AddForce(Vector2.right * MoveSpeed);
@@ -115,7 +115,7 @@ public class CharacterController : MonoBehaviour
                 Filp();
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (SimpleInput.GetKey(KeyCode.W))
         {
             // Debug.Log("up");
             rigidbody.AddForce(Vector2.up * MoveSpeed * 2);

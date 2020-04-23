@@ -11,19 +11,19 @@ namespace SimpleInputNamespace
 
 		public SimpleInput.ButtonInput button = new SimpleInput.ButtonInput();
 
-		private void OnEnable()
+		public void OnEnable()
 		{
 			button.StartTracking();
 			SimpleInput.OnUpdate += OnUpdate;
 		}
 
-		private void OnDisable()
+		public void OnDisable()
 		{
 			button.StopTracking();
 			SimpleInput.OnUpdate -= OnUpdate;
 		}
 
-		private void OnUpdate()
+		public void OnUpdate()
 		{
 			button.value = Input.GetKey( key );
 		}
